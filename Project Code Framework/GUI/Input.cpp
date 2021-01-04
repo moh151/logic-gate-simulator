@@ -88,7 +88,7 @@ ActionType Input::GetUserAction() const
 			}
 		}
 		//[1] If user clicks on the Toolbar
-			if (y >= UI.ToolBarHeight && y < UI.ActionItemHeight)
+			if (y >= UI.ToolBarHeight && y < (UI.ActionItemHeight+UI.ToolBarHeight))
 			{
 				//Check whick Menu item was clicked
 				//==> This assumes that menu items are lined up horizontally <==
@@ -98,15 +98,15 @@ ActionType Input::GetUserAction() const
 
 				switch (ClickedItemOrder)
 				{
-				case ITM_DEL: return DEL;
-				case ITM_COPY: return COPY;
-				case ITM_CUT: return CUT;
-				case ITM_PASTE: return PASTE;
-				case ITM_SAVE: return SAVE;
-				case ITM_LOAD: return LOAD;
-				//case ITM_LABEL: return ADD_Label;
-				case ITM_EDIT: return EDIT_Label;
-				case ITM_SWITCH_SIM: return SIM_MODE;
+				case ITM_DEL1: return DEL;
+				case ITM_COPY1: return COPY;
+				case ITM_CUT1: return CUT;
+				case ITM_PASTE1: return PASTE;
+				case ITM_SAVE1: return SAVE;
+				case ITM_LOAD1: return LOAD;
+				case ITM_LABEL1: return ADD_Label;
+				case ITM_EDIT1: return EDIT_Label;
+				case ITM_SWITCH_SIM1: return SIM_MODE;
 
 				default: return DSN_TOOL;	//A click on empty place in desgin toolbar
 				}

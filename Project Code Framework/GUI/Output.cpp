@@ -81,7 +81,7 @@ void Output::ClearDrawingArea() const
 {
 	pWind->SetPen(RED, 1);
 	pWind->SetBrush(WHITE);
-	pWind->DrawRectangle(0, UI.ToolBarHeight, UI.width, UI.height - UI.StatusBarHeight);
+	pWind->DrawRectangle(0, UI.ActionItemHeight+UI.ToolBarHeight, UI.width, UI.height - UI.StatusBarHeight);
 	
 }
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -119,8 +119,7 @@ void Output::CreateDesignToolBar() const
 	MenuItemImages[ITM_LOAD] = "images\\toolbar\\load.jpg";
 	MenuItemImages[ITM_EDIT] = "images\\toolbar\\edit.jpg";
 	MenuItemImages[ITM_SWITCH_SIM] = "images\\toolbar\\play.jpg";
-	//MenuItemImages[ITM_LABEL] = "images\\toolbar\\label.jpg";
-
+	MenuItemImages[ITM_LABEL] = "images\\toolbar\\label.jpg";
 
 int j=0;
 //TODO: Prepare image for each menu item and add it to the list

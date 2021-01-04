@@ -93,13 +93,29 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_LOAD,
 	ITM_EDIT,
 	ITM_SWITCH_SIM,
-	//ITM_LABEL,
+	ITM_LABEL,
 	//TODO: Add more items names here
 	
 	ITM_DSN_CNT		//no. of design menu items ==> This should be the last line in this enum
 	
 };
 
+enum DsgnMenuItem1 //The items of the design menu (you should add more items)
+{
+	ITM_DEL1,
+	ITM_COPY1,
+	ITM_CUT1,
+	ITM_PASTE1,
+	ITM_SAVE1,
+	ITM_LOAD1,
+	ITM_EDIT1,
+	ITM_SWITCH_SIM1,
+	ITM_LABEL1,
+	//TODO: Add more items names here
+
+	ITM_DSN_CNT1		//no. of design menu items ==> This should be the last line in this enum
+
+};
 
 enum SimMenuItem //The items of the simulation menu (you should add more items)
 {
