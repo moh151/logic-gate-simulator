@@ -7,7 +7,7 @@
   represent the 3-input AND gate
 */
 
-#include "Gate.h"
+#include"Gate.h"
 
 class AND3 :public Gate
 {

@@ -1,11 +1,13 @@
 #ifndef _ACTION_H
 #define _ACTION_H
 
+
+
 class ApplicationManager; //forward class declaration
 
 
 //Base class for all possible actions (abstract class)
-class Action
+class Action 
 {
 protected:
 	ApplicationManager *pManager;	//Actions needs AppMngr to do their job

@@ -87,9 +87,35 @@ ActionType Input::GetUserAction() const
 			default: return DSN_TOOL;	//A click on empty place in desgin toolbar
 			}
 		}
+		//[1] If user clicks on the Toolbar
+			if (y >= UI.ToolBarHeight && y < UI.ActionItemHeight)
+			{
+				//Check whick Menu item was clicked
+				//==> This assumes that menu items are lined up horizontally <==
+				int ClickedItemOrder = (x / UI.ActionItemWidth);
+				//Divide x coord of the point clicked by the menu item width (int division)
+				//if division result is 0 ==> first item is clicked, if 1 ==> 2nd item and so on
+
+				switch (ClickedItemOrder)
+				{
+				case ITM_DEL: return DEL;
+				case ITM_COPY: return COPY;
+				case ITM_CUT: return CUT;
+				case ITM_PASTE: return PASTE;
+				case ITM_SAVE: return SAVE;
+				case ITM_LOAD: return LOAD;
+				//case ITM_LABEL: return ADD_Label;
+				case ITM_EDIT: return EDIT_Label;
+				case ITM_SWITCH_SIM: return SIM_MODE;
+
+				default: return DSN_TOOL;	//A click on empty place in desgin toolbar
+				}
+			}
+
+
 
 		//[2] User clicks on the drawing area
-		if (y >= UI.ToolBarHeight && y < UI.height - UI.StatusBarHeight)
+		if (y >= UI.ActionItemHeight && y < UI.height - UI.StatusBarHeight)
 		{
 			return SELECT;	//user want to select/unselect a component
 		}

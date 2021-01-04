@@ -14,15 +14,14 @@ class ApplicationManager
 	enum { MaxCompCount = 200 };	//Max no of Components	
 
 private:
-	int CompCount;		//Actual number of Components
 	Component* CompList[MaxCompCount];	//List of all Components (Array of pointers)
 
 	Output* OutputInterface; //pointer to the Output Clase Interface
 	Input* InputInterface; //pointer to the Input Clase Interface
+	int CompCount; //Actual number of Components
 
 
 public:
-
 
 public:	
 	ApplicationManager(); //constructor
@@ -32,13 +31,13 @@ public:
 	
 	//Creates an action and executes it
 	void ExecuteAction(ActionType);
-	
+	Component* GetCompenentList(int i);
 	void UpdateInterface();	//Redraws all the drawing window
-
+	int GetExistingComponentsCount() const;
 	//Gets a pointer to Input / Output Object
 	Output* GetOutput();
 	Input* GetInput();
-
+	int getComponentCount();
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp);
 

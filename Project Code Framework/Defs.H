@@ -34,6 +34,10 @@ enum ActionType
 
 	SAVE,		//Save the whole Circuit to a file
 	LOAD,		//Load a Circuit from a file
+	
+	COPY,
+	CUT,
+	PASTE,
 
 	UNDO,		//Undo the last Action preformed
 	REDO,		//Redo the last Action canceled
@@ -81,7 +85,15 @@ enum DsgnMenuItem //The items of the design menu (you should add more items)
 	ITM_SWITCH,
 	ITM_LED,
 	ITM_CONNECTION,
-
+	ITM_DEL,
+	ITM_COPY,
+	ITM_CUT,
+	ITM_PASTE,
+	ITM_SAVE,
+	ITM_LOAD,
+	ITM_EDIT,
+	ITM_SWITCH_SIM,
+	//ITM_LABEL,
 	//TODO: Add more items names here
 	
 	ITM_DSN_CNT		//no. of design menu items ==> This should be the last line in this enum

@@ -11,6 +11,8 @@
 #include "Actions\AddNANDgate2.h"
 #include "Actions\AddNOTgate.h"
 #include "Actions\AddXNORgate.h"
+#include "Actions\Addswitch.h"
+
 
 ApplicationManager::ApplicationManager()
 {
@@ -27,8 +29,19 @@ ApplicationManager::ApplicationManager()
 void ApplicationManager::AddComponent(Component* pComp)
 {
 	CompList[CompCount++] = pComp;		
+	
 }
 ////////////////////////////////////////////////////////////////////
+
+int ApplicationManager::GetExistingComponentsCount() const {
+	int n = 0;
+
+	for (int i = 0; i < CompCount; i++) {
+			n++;
+	}
+
+	return n;
+}
 
 ActionType ApplicationManager::GetUserAction()
 {
@@ -45,7 +58,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case ADD_AND_GATE_2:
 			pAct= new AddANDgate2(this);
 			break;
-
+		case ADD_Switch:
+			pAct = new AddSWITCH(this);
+			break;
 		case ADD_CONNECTION:
 			//TODO: Create AddConection Action here
 			break;
@@ -93,6 +108,10 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = NULL;
 	}
 }
+Component* ApplicationManager::GetCompenentList(int i)
+{
+	return CompList[i];
+}
 ////////////////////////////////////////////////////////////////////
 
 void ApplicationManager::UpdateInterface()
@@ -107,6 +126,11 @@ void ApplicationManager::UpdateInterface()
 Input* ApplicationManager::GetInput()
 {
 	return InputInterface;
+}
+
+int ApplicationManager::getComponentCount()
+{
+	return CompCount;
 }
 
 ////////////////////////////////////////////////////////////////////

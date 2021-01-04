@@ -111,17 +111,32 @@ void Output::CreateDesignToolBar() const
 	MenuItemImages[ITM_SWITCH] = "images\\Menu\\switch.jpg";
 	MenuItemImages[ITM_LED] = "images\\Menu\\led.jpg";
 	MenuItemImages[ITM_CONNECTION] = "images\\Menu\\connection.jpg";
+	MenuItemImages[ITM_DEL] = "images\\toolbar\\delete.jpg";
+	MenuItemImages[ITM_COPY] = "images\\toolbar\\copy.jpg";
+	MenuItemImages[ITM_CUT] = "images\\toolbar\\cut.jpg";
+	MenuItemImages[ITM_PASTE] = "images\\toolbar\\paste.jpg";
+	MenuItemImages[ITM_SAVE] = "images\\toolbar\\save.jpg";
+	MenuItemImages[ITM_LOAD] = "images\\toolbar\\load.jpg";
+	MenuItemImages[ITM_EDIT] = "images\\toolbar\\edit.jpg";
+	MenuItemImages[ITM_SWITCH_SIM] = "images\\toolbar\\play.jpg";
+	//MenuItemImages[ITM_LABEL] = "images\\toolbar\\label.jpg";
 
-	//TODO: Prepare image for each menu item and add it to the list
 
-	//Draw menu item one image at a time
-	for(int i=0; i<ITM_DSN_CNT; i++)
-		pWind->DrawImage(MenuItemImages[i],i*UI.ToolItemWidth,0,UI.ToolItemWidth, UI.ToolBarHeight);
+int j=0;
+//TODO: Prepare image for each menu item and add it to the list
+for (int i = 0; i < ITM_DSN_CNT; i++) {
+	if (i < 15) {
+		pWind->DrawImage(MenuItemImages[i], i * UI.ToolItemWidth, 0, UI.ToolItemWidth, UI.ToolBarHeight);
+	}
+	else {
 
-
+				pWind->DrawImage(MenuItemImages[i], j * UI.ActionItemWidth, UI.ToolBarHeight, UI.ActionItemWidth, UI.ActionItemHeight);
+				j++;
+	}
+}
 	//Draw a line under the toolbar
-	pWind->SetPen(RED,3);
-	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);	
+	pWind->SetPen(RED, 3);
+	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
 
 }
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -149,6 +164,10 @@ void Output::CreateSimulationToolBar() const
 	MenuItemImages[ITM_SWITCH] = "images\\Menu\\switch.jpg";
 	MenuItemImages[ITM_LED] = "images\\Menu\\led.jpg";
 	MenuItemImages[ITM_CONNECTION] = "images\\Menu\\connection.jpg";
+	
+
+//	for (int i = 0; i < ITM_DSN_CNT; i++)
+	//	pWind->DrawImage(MenuItemImages[i], i * UI.ToolItemWidth,0, UI.ToolItemWidth,UI.ToolBarHeight);
 
 }
 
