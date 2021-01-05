@@ -13,7 +13,7 @@
 #include "Actions\AddXNORgate.h"
 #include "Actions\Addswitch.h"
 #include "Actions/AddLabel.h"
-
+#include "Actions/Select.h"
 
 ApplicationManager::ApplicationManager()
 {
@@ -103,6 +103,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case EXIT:
 			///TODO: create ExitAction here
+			break;
+		case SELECT:
+			pAct = new Select(this);
 			break;
 	}
 	if(pAct)

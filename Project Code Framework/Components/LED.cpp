@@ -8,6 +8,7 @@ LED::LED(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(1, r_FanOut)
 	m_GfxInfo.x2 = r_GfxInfo.x2;
 	m_GfxInfo.y2 = r_GfxInfo.y2;
 	m_InputPin.SetGate(this);
+	mSelected = false;
 }
 
 
@@ -35,7 +36,7 @@ void LED::Operate()
 void LED::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawLED(m_GfxInfo,false, m_InputPin.getStatus() == STATUS::HIGH);
+	pOut->DrawLED(m_GfxInfo,mSelected, m_InputPin.getStatus() == STATUS::HIGH);
 }
 
 Pin* LED::GetInputPin(int n) {

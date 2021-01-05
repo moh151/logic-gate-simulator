@@ -1,7 +1,3 @@
 ﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  Output.cpp
-C:\Users\mohammed saeed\Desktop\PT Project F2020 - Logic Sim - student\Project Code Framework\GUI\Output.cpp(177,1): error C2511: 'void Output::DrawString(int,int,std::string) const': overloaded member function not found in 'Output'
-C:\Users\mohammed saeed\Desktop\PT Project F2020 - Logic Sim - student\Project Code Framework\GUI\Output.h(8): message : see declaration of 'Output'
-  LED.cpp
-  ApplicationManager.cpp
-  Generating Code...
+  Select.cpp
+  graphics_prj.vcxproj -> C:\Users\mohammed saeed\Desktop\PT Project F2020 - Logic Sim - student\Project Code Framework\Debug\graphics_prj.exe

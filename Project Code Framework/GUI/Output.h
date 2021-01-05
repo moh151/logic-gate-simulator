@@ -20,7 +20,7 @@ public:
 
 	void ClearStatusBar() const;		//Clears the status bar
 	void ClearDrawingArea() const;	//Clears the drawing area
-	void DrawString(string) const;
+	void DrawString(int,int, string) const;
 
 	window* CreateWind(int wd, int h, int x, int y) const; //Creates user interface window
 

@@ -7,6 +7,7 @@ NOR3::NOR3(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(3, r_FanOut)
 	m_GfxInfo.y1 = r_GfxInfo.y1;
 	m_GfxInfo.x2 = r_GfxInfo.x2;
 	m_GfxInfo.y2 = r_GfxInfo.y2;
+	mSelected = false;
 }
 
 
@@ -34,7 +35,7 @@ void NOR3::Operate()
 void NOR3::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawNOR3(m_GfxInfo);
+	pOut->DrawNOR3(m_GfxInfo, mSelected);
 }
 
 

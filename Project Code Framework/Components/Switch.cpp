@@ -8,6 +8,7 @@ SWITCH::SWITCH(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(1, r_FanOut)
 	m_GfxInfo.x2 = r_GfxInfo.x2;
 	m_GfxInfo.y2 = r_GfxInfo.y2;
 	m_OutputPin.SetGate(this);
+	mSelected = false;
 }
 
 
@@ -34,7 +35,7 @@ void SWITCH::Operate()
 void SWITCH::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
-	pOut->DrawSwitch(m_GfxInfo, false, m_OutputPin.getStatus() == STATUS::HIGH);
+	pOut->DrawSwitch(m_GfxInfo, mSelected, m_OutputPin.getStatus() == STATUS::HIGH);
 }
 
 Pin* SWITCH::GetInputPin(int n) {
