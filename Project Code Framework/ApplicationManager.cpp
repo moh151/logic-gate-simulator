@@ -12,6 +12,7 @@
 #include "Actions\AddNOTgate.h"
 #include "Actions\AddXNORgate.h"
 #include "Actions\Addswitch.h"
+#include "Actions/AddLabel.h"
 
 
 ApplicationManager::ApplicationManager()
@@ -96,6 +97,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case ADD_XNOR_GATE_2:
 			pAct = new AddXNORgate(this);
+			break;
+		case ADD_Label:
+			pAct = new AddLabel(this);
 			break;
 		case EXIT:
 			///TODO: create ExitAction here

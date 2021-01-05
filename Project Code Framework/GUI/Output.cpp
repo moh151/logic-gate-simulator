@@ -15,7 +15,7 @@ Output::Output()
 	UI.ConnColor = BLACK;
 	UI.ConnOnColor = color(139, 195, 74);
 	//Create the drawing window
-	pWind = CreateWind(UI.width, UI.height, UI.wx, UI.wy);	
+	pWind = CreateWind(UI.width, UI.height, UI.wx, UI.wy);
 	ChangeTitle("Programming Techniques Project");
 
 	CreateDesignToolBar();	//Create the desgin toolbar
@@ -47,8 +47,8 @@ void Output::ChangeTitle(string Title) const
 //////////////////////////////////////////////////////////////////////////////////
 void Output::CreateStatusBar() const
 {
-	pWind->SetPen(RED,3);
-	pWind->DrawLine(0, UI.height-UI.StatusBarHeight, UI.width, UI.height-UI.StatusBarHeight);
+	pWind->SetPen(RED, 3);
+	pWind->DrawLine(0, UI.height - UI.StatusBarHeight, UI.width, UI.height - UI.StatusBarHeight);
 }
 //////////////////////////////////////////////////////////////////////////////////
 void Output::PrintMsg(string msg) const
@@ -59,8 +59,8 @@ void Output::PrintMsg(string msg) const
 	int MsgY = UI.StatusBarHeight - 10;
 
 	// Print the Message
-    pWind->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial"); 
-	pWind->SetPen(UI.MsgColor); 
+	pWind->SetFont(20, BOLD | ITALICIZED, BY_NAME, "Arial");
+	pWind->SetPen(UI.MsgColor);
 	pWind->DrawString(MsgX, UI.height - MsgY, msg);
 }
 //////////////////////////////////////////////////////////////////////////////////
@@ -81,8 +81,8 @@ void Output::ClearDrawingArea() const
 {
 	pWind->SetPen(RED, 1);
 	pWind->SetBrush(WHITE);
-	pWind->DrawRectangle(0, UI.ActionItemHeight+UI.ToolBarHeight, UI.width, UI.height - UI.StatusBarHeight);
-	
+	pWind->DrawRectangle(0, UI.ActionItemHeight + UI.ToolBarHeight, UI.width, UI.height - UI.StatusBarHeight);
+
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 //Draws the menu (toolbar) in the Design mode
@@ -95,7 +95,7 @@ void Output::CreateDesignToolBar() const
 	//First prepare List of images for each menu item
 	string MenuItemImages[ITM_DSN_CNT];
 	MenuItemImages[ITM_AND2] = "images\\Menu\\and.jpg";
-	MenuItemImages[ITM_OR2]  = "images\\Menu\\or.jpg";
+	MenuItemImages[ITM_OR2] = "images\\Menu\\or.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\Menu\\exit.jpg";
 	MenuItemImages[ITM_Buffer] = "images\\Menu\\buffer.jpg";
 	MenuItemImages[ITM_NOT] = "images\\Menu\\not.jpg";
@@ -121,18 +121,18 @@ void Output::CreateDesignToolBar() const
 	MenuItemImages[ITM_SWITCH_SIM] = "images\\toolbar\\play.jpg";
 	MenuItemImages[ITM_LABEL] = "images\\toolbar\\label.jpg";
 
-int j=0;
-//TODO: Prepare image for each menu item and add it to the list
-for (int i = 0; i < ITM_DSN_CNT; i++) {
-	if (i < 15) {
-		pWind->DrawImage(MenuItemImages[i], i * UI.ToolItemWidth, 0, UI.ToolItemWidth, UI.ToolBarHeight);
-	}
-	else {
+	int j = 0;
+	//TODO: Prepare image for each menu item and add it to the list
+	for (int i = 0; i < ITM_DSN_CNT; i++) {
+		if (i < 15) {
+			pWind->DrawImage(MenuItemImages[i], i * UI.ToolItemWidth, 0, UI.ToolItemWidth, UI.ToolBarHeight);
+		}
+		else {
 
-				pWind->DrawImage(MenuItemImages[i], j * UI.ActionItemWidth, UI.ToolBarHeight, UI.ActionItemWidth, UI.ActionItemHeight);
-				j++;
+			pWind->DrawImage(MenuItemImages[i], j * UI.ActionItemWidth, UI.ToolBarHeight, UI.ActionItemWidth, UI.ActionItemHeight);
+			j++;
+		}
 	}
-}
 	//Draw a line under the toolbar
 	pWind->SetPen(RED, 3);
 	pWind->DrawLine(0, UI.ToolBarHeight, UI.width, UI.ToolBarHeight);
@@ -163,21 +163,21 @@ void Output::CreateSimulationToolBar() const
 	MenuItemImages[ITM_SWITCH] = "images\\Menu\\switch.jpg";
 	MenuItemImages[ITM_LED] = "images\\Menu\\led.jpg";
 	MenuItemImages[ITM_CONNECTION] = "images\\Menu\\connection.jpg";
-	
 
-//	for (int i = 0; i < ITM_DSN_CNT; i++)
-	//	pWind->DrawImage(MenuItemImages[i], i * UI.ToolItemWidth,0, UI.ToolItemWidth,UI.ToolBarHeight);
+
+	//	for (int i = 0; i < ITM_DSN_CNT; i++)
+		//	pWind->DrawImage(MenuItemImages[i], i * UI.ToolItemWidth,0, UI.ToolItemWidth,UI.ToolBarHeight);
 
 }
 
 //======================================================================================//
 //								Components Drawing Functions							//
 //======================================================================================//
-void Output::DrawString(string str) const
+void Output::DrawString(int x, int y,string str) const
 {
-	ClearDrawingArea();
+	pWind->SetPen(ROYALBLUE);
 	pWind->SetBrush(RED);
-	pWind->DrawString(350, 425, str);
+	pWind->DrawString(x, y, str);
 }
 
 void Output::DrawAND2(GraphicsInfo r_GfxInfo, bool selected) const
@@ -347,7 +347,7 @@ void Output::DrawLED(GraphicsInfo r_GfxInfo, bool selected, bool on) const
 	pWind->DrawImage(GateImage, r_GfxInfo.x1, r_GfxInfo.y1, UI.Switch_LED_Width, UI.Switch_LED_Height);
 }
 
-void Output::DrawConnection(GraphicsInfo r_GfxInfo, bool selected,bool on) const
+void Output::DrawConnection(GraphicsInfo r_GfxInfo, bool selected, bool on) const
 {
 	//TODO: Add code to draw connection
 	color c;
@@ -359,8 +359,8 @@ void Output::DrawConnection(GraphicsInfo r_GfxInfo, bool selected,bool on) const
 
 	pWind->SetPen(c, 2);
 
-	pWind->DrawLine(r_GfxInfo.x1, r_GfxInfo.y1 ,r_GfxInfo.x2, r_GfxInfo.y2);
-	
+	pWind->DrawLine(r_GfxInfo.x1, r_GfxInfo.y1, r_GfxInfo.x2, r_GfxInfo.y2);
+
 }
 
 
