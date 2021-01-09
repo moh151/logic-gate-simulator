@@ -31,7 +31,14 @@ void OR2::Operate()
 void OR2::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
+
+	if (m_GfxInfo.y1 >= 0 && m_GfxInfo.y2 < (UI.DesignBarHeight)) {
+		pOut->PrintMsg("Invalid Postion");
+	}
+	else {
+
 	pOut->DrawOR2(m_GfxInfo, mSelected);
+	}
 }
 
 //returns status of outputpin

@@ -22,7 +22,7 @@ public:
 	void SetSelected(bool s);
 	bool IsSelected() const;
 	virtual void setInputPinStatus(int n, STATUS s) = 0;	//set status of Inputpin # n, to be used by connection class.
-
+	void setLabel(string s);
 
 	Component();
 

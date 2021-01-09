@@ -40,7 +40,6 @@ public:
 	int getComponentCount();
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp);
-
 	//destructor
 	~ApplicationManager();
 };

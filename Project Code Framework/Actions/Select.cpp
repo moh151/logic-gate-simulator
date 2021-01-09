@@ -1,4 +1,5 @@
 #include "Select.h"
+#include <Windows.h>
 
 
 /* Constructor */
@@ -16,7 +17,6 @@ void Select::ReadActionParameters() {
 
 	//Wait for User Input
 
-
 	//Clear Status Bar
 
 	pIn->GetPointClicked(xs, ys);
@@ -27,15 +27,19 @@ void Select::ReadActionParameters() {
 /* Executes action */
 void Select::Execute() {
 	ReadActionParameters();
+
 	Output* pOut = pManager->GetOutput();
 	Input* pIn = pManager->GetInput();
 	int compcount = pManager->getComponentCount();
 	ApplicationManager* M = pManager;
 	for (int i = 0; i < compcount; i++) {
-		if (xs >= M->GetCompenentList(i)->getGraphicsinfo().x1 && xs <= M->GetCompenentList(i)->getGraphicsinfo().x2 && ys >= M->GetCompenentList(i)->getGraphicsinfo().y1 && ys <= M->GetCompenentList(i)->getGraphicsinfo().y2 && M->GetCompenentList(i)->IsSelected() == false) {
-			pManager->GetCompenentList(i)->SetSelected(true);
+		if (GetKeyState(VK_CONTROL) & 0x8000 || M->GetCompenentList(i)->IsSelected() == false)
+		{
+			if (xs >= M->GetCompenentList(i)->getGraphicsinfo().x1 && xs <= M->GetCompenentList(i)->getGraphicsinfo().x2 && ys >= M->GetCompenentList(i)->getGraphicsinfo().y1 && ys <= M->GetCompenentList(i)->getGraphicsinfo().y2) {
+				pManager->GetCompenentList(i)->SetSelected(true);
+			}
 		}
-		else if (M->GetCompenentList(i)->IsSelected() == true) {
+		else if (xs >= M->GetCompenentList(i)->getGraphicsinfo().x1 && xs <= M->GetCompenentList(i)->getGraphicsinfo().x2 && ys >= M->GetCompenentList(i)->getGraphicsinfo().y1 && ys <= M->GetCompenentList(i)->getGraphicsinfo().y2 && M->GetCompenentList(i)->IsSelected() == true) {
 			pManager->GetCompenentList(i)->SetSelected(false);
 		}
 	}

@@ -15,6 +15,7 @@ enum keytype {
 	ASCII,
 	ARROW,
 	FUNCTION,
+	CTRL,
 	ESCAPE
 };
 

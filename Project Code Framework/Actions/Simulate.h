@@ -16,15 +16,16 @@
 #include "..\Components\NOR3.h"
 #include "..\Components\OR2.h"
 #include "..\Components\XNOR.h"
-#include "..\Components\XOR2.h"8
+#include "..\Components\XOR2.h"
 #include "..\Components\XOR3.h"
+#include "..\Components\Switch.h"
 #include <string>
 using namespace std;
 
 class Simulate : public Action
 {
 private:
-	bool mStopSimulation;
+
 public:
 	/* Constructor */
 	Simulate(ApplicationManager* pAppMan);

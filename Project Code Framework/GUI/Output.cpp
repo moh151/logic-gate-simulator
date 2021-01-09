@@ -175,7 +175,7 @@ void Output::CreateSimulationToolBar() const
 //======================================================================================//
 void Output::DrawString(int x, int y,string str) const
 {
-	pWind->SetPen(ROYALBLUE);
+	pWind->SetPen(DARKBLUE);
 	pWind->SetBrush(RED);
 	pWind->DrawString(x, y, str);
 }

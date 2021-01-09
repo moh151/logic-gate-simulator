@@ -7,6 +7,7 @@ class AddLabel : public Action
 {
 private:
 	int Cx, Cy;	//Centre of the text
+	int x, y; //The Gate Postion
 public:
 	AddLabel(ApplicationManager* pApp);
 	virtual ~AddLabel(void);

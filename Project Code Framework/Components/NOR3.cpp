@@ -35,7 +35,14 @@ void NOR3::Operate()
 void NOR3::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
+
+	if (m_GfxInfo.y1 >= 0 && m_GfxInfo.y2 < (UI.DesignBarHeight)) {
+		pOut->PrintMsg("Invalid Postion");
+	}
+	else {
 	pOut->DrawNOR3(m_GfxInfo, mSelected);
+
+	}
 }
 
 

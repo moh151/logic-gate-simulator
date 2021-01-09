@@ -20,6 +20,11 @@ bool Component::IsSelected() const {
 	return mSelected;
 }
 
+void Component::setLabel(string s)
+{
+	m_Label = s;
+}
+
 
 Component::Component()
 {}

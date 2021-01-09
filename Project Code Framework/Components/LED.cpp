@@ -36,7 +36,14 @@ void LED::Operate()
 void LED::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
+
+	if (m_GfxInfo.y1 >= 0 && m_GfxInfo.y2 < (UI.DesignBarHeight)) {
+		pOut->PrintMsg("Invalid Postion");
+	}
+	else {
 	pOut->DrawLED(m_GfxInfo,mSelected, m_InputPin.getStatus() == STATUS::HIGH);
+
+	}
 }
 
 Pin* LED::GetInputPin(int n) {

@@ -19,8 +19,7 @@ string Input::GetSrting(Output* pOut)
 	//If the user presses "ESCAPE". This function should return an empty string.
 	//"BACKSPACE" should be also supported
 	//User should see what he is typing at the status bar*/ //Done
-
-	pOut->ClearStatusBar();
+	//pOut->ClearStatusBar();
 	char kt;
 	string ckts = "";
 	keytype kp;

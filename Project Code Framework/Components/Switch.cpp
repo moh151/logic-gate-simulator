@@ -35,7 +35,13 @@ void SWITCH::Operate()
 void SWITCH::Draw(Output* pOut)
 {
 	//Call output class and pass gate drawing info to it.
+
+	if (m_GfxInfo.y1 >= 0 && m_GfxInfo.y2 < (UI.DesignBarHeight)) {
+		pOut->PrintMsg("Invalid Postion");
+	}
+	else {
 	pOut->DrawSwitch(m_GfxInfo, mSelected, m_OutputPin.getStatus() == STATUS::HIGH);
+	}
 }
 
 Pin* SWITCH::GetInputPin(int n) {
