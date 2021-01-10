@@ -8,8 +8,8 @@ class ApplicationManager;
 class Select : public Action 
 {
 private:
-	int xs, xe;
-	int ys, ye;
+	int xs;
+	int ys;
 public:
 	/* Constructor */
 	Select(ApplicationManager* pApp);

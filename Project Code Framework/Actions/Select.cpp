@@ -4,7 +4,8 @@
 
 /* Constructor */
 Select::Select(ApplicationManager* pApp) : Action(pApp) {
-	
+	xs = 0;
+	ys = 0;
 }
 
 /* Reads parameters required for action to execute */
@@ -18,7 +19,6 @@ void Select::ReadActionParameters() {
 	//Wait for User Input
 
 	//Clear Status Bar
-
 	pIn->GetPointClicked(xs, ys);
 	pOut->ClearStatusBar();
 }

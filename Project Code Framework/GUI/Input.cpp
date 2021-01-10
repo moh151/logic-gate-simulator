@@ -114,9 +114,9 @@ ActionType Input::GetUserAction() const
 
 
 		//[2] User clicks on the drawing area
-		if (y >= UI.ActionItemHeight && y < UI.height - UI.StatusBarHeight)
+		if (y >= (UI.ActionItemHeight + UI.ToolBarHeight) && y < UI.height - UI.StatusBarHeight)
 		{
-			return SELECT;	//user want to select/unselect a component
+			return SELECT ;	//user want to select/unselect a component
 		}
 
 		//[3] User clicks on the status bar

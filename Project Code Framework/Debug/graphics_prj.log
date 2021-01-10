@@ -1,17 +1,2 @@
-﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
-  XOR3.cpp
-  XOR2.cpp
-  XNOR.cpp
-  Switch.cpp
-  OR2.cpp
-  NOR3.cpp
-  NOR2.cpp
-  NAND.cpp
-  LED.cpp
-  INVERTER.cpp
-  Buffer.cpp
-  AND3.cpp
-  Generating Code...
-  LINK : .\Debug\graphics_prj.exe not found or not built by the last incremental link; performing full link
-AddANDgate2.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+﻿AddANDgate2.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   graphics_prj.vcxproj -> C:\Users\mohammed saeed\Desktop\PT Project F2020 - Logic Sim - student\Project Code Framework\Debug\graphics_prj.exe
