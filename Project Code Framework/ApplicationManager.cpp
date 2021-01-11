@@ -17,7 +17,7 @@
 #include "Actions\save.h"
 #include "Actions\edit.h"
 #include "Actions\load.h"
-
+#include "Actions\AddConection.h"
 ApplicationManager::ApplicationManager()
 {
 	CompCount = 0;
@@ -66,7 +66,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new AddSWITCH(this);
 			break;
 		case ADD_CONNECTION:
-			//TODO: Create AddConection Action here
+			pAct = new AddConnection(this);
 			break;
 		case ADD_Buff:
 			pAct = new AddBuffer(this);
@@ -119,6 +119,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case LOAD:
 			pAct = new load(this);
 			break;
+
 	}
 	if(pAct)
 	{

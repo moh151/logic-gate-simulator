@@ -19,7 +19,7 @@ void Select::ReadActionParameters() {
 	//Wait for User Input
 
 	//Clear Status Bar
-	pIn->GetPointClicked(xs, ys);
+	pIn->getLastPointClicked(xs, ys);
 	pOut->ClearStatusBar();
 }
 

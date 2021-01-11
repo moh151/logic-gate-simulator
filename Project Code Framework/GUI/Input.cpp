@@ -48,6 +48,11 @@ string Input::GetSrting(Output* pOut)
 	return ckts;
 }
 
+void Input::getLastPointClicked(int&xs, int&ys)
+{
+	pWind->GetMouseCoord(xs, ys);
+}
+
 //This function reads the position where the user clicks to determine the desired action
 ActionType Input::GetUserAction() const
 {
