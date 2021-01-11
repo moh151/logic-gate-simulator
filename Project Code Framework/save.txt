@@ -1,2 +1,2 @@
-OR2  10  OR2  176   320  
-AND2  2   AND2  734   518  
+NOR3  9  NOR3  459   439  
+SWITCH  14   Switch  953   326  
