@@ -140,6 +140,9 @@
     <ClCompile Include="Actions\AddXNORgate.cpp" />
     <ClCompile Include="Actions\AddXORgate2.cpp" />
     <ClCompile Include="Actions\AddXORgate3.cpp" />
+    <ClCompile Include="Actions\edit.cpp" />
+    <ClCompile Include="Actions\load.cpp" />
+    <ClCompile Include="Actions\save.cpp" />
     <ClCompile Include="Actions\Select.cpp" />
     <ClCompile Include="CMUgraphicsLib\auxil.cpp" />
     <ClCompile Include="CMUgraphicsLib\CMUgraphics.cpp" />
@@ -216,6 +219,9 @@
     <ClInclude Include="Actions\AddXNORgate.h" />
     <ClInclude Include="Actions\AddXORgate2.h" />
     <ClInclude Include="Actions\AddXORgate3.h" />
+    <ClInclude Include="Actions\edit.h" />
+    <ClInclude Include="Actions\load.h" />
+    <ClInclude Include="Actions\save.h" />
     <ClInclude Include="Actions\Select.h" />
     <ClInclude Include="CMUgraphicsLib\auxil.h" />
     <ClInclude Include="CMUgraphicsLib\CMUgraphics.h" />

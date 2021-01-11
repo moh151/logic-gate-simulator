@@ -1,4 +1,9 @@
 #include "Connection.h"
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <string>
+
 
 Connection::Connection(const GraphicsInfo &r_GfxInfo, OutputPin *pSrcPin,InputPin *pDstPin):Component(r_GfxInfo)	
 	
@@ -45,4 +50,31 @@ int Connection::GetInputPinStatus(int n)	//returns status of Inputpin # n if SWI
 void Connection::setInputPinStatus(int n, STATUS s)
 {
 	SrcPin->setStatus(s);
+}
+
+void Connection::editconnection(string newlabel, OutputPin* newSrcPin, InputPin* newDstPin)
+{
+	m_Label = newlabel;
+	SrcPin = newSrcPin;
+	DstPin = newDstPin;
+}
+void Connection::save(ofstream& Save)
+{
+	OutputPin* n = getSourcePin();
+	InputPin* m = getDestPin();
+	Save << n << "   " << m << "  " << DstPine << endl;
+
+}
+void Connection::load(ifstream& Load)
+{
+
+	//Load >> SrcCmpnt >> DstCmpnt>>DstPine ;
+
+}
+void Connection::edit(string l, OutputPin* source, InputPin* dest)
+{
+	m_Label = l;
+	setSourcePin(source);
+	setDestPin(dest);
+
 }

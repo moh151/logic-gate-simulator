@@ -14,6 +14,9 @@
 #include "Actions\Addswitch.h"
 #include "Actions/AddLabel.h"
 #include "Actions/Select.h"
+#include "Actions\save.h"
+#include "Actions\edit.h"
+#include "Actions\load.h"
 
 ApplicationManager::ApplicationManager()
 {
@@ -107,6 +110,15 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case SELECT:
 			pAct = new Select(this);
 			break;
+		case SAVE:
+			pAct = new save(this);
+			break;
+		case EDIT_Label:
+			pAct = new edit(this);
+			break;
+		case LOAD:
+			pAct = new load(this);
+			break;
 	}
 	if(pAct)
 	{
@@ -148,6 +160,21 @@ Output* ApplicationManager::GetOutput()
 
 ////////////////////////////////////////////////////////////////////
 
+void ApplicationManager::saveall(ofstream& obj)
+{
+
+	for (int i = 0; i < CompCount; i++)
+		CompList[i]->save(obj);
+
+
+}
+void ApplicationManager::editall(string labe)
+{
+
+	for (int i = 0; i < CompCount; i++)
+		CompList[i]->edit(labe);
+
+}
 ApplicationManager::~ApplicationManager()
 {
 	for(int i=0; i<CompCount; i++)

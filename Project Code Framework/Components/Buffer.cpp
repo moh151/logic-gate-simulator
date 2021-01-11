@@ -1,8 +1,13 @@
 #include "Buffer.h"
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <string>
 
 Buffer::Buffer(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(1, r_FanOut)
 {
 	m_Label = "Buffer";
+	ID = 4;
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
 	m_GfxInfo.x2 = r_GfxInfo.x2;
@@ -53,4 +58,18 @@ int Buffer::GetInputPinStatus(int n)
 void Buffer::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
+}
+void Buffer::save(ofstream& Save)
+{
+	Save << "Buffer" << "  " << ID << "  " << m_Label << "  " << m_GfxInfo.x1 << "   " << m_GfxInfo.y1 << "  " << endl;
+}
+void Buffer::load(ifstream& Load)
+{
+
+	Load >> nameofcomp >> ID >> m_Label >> m_GfxInfo.x1 >> m_GfxInfo.y1;
+
+}
+void Buffer::edit(string l)
+{
+	m_Label = l;
 }

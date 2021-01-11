@@ -1,8 +1,13 @@
 #include "LED.h"
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <string>
 
 LED::LED(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(1, r_FanOut)
 {
 	m_Label = "LED";
+	ID = 6;
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
 	m_GfxInfo.x2 = r_GfxInfo.x2;
@@ -67,4 +72,19 @@ int LED::GetInputPinStatus(int n)
 void LED::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPin.setStatus(s);
+}
+
+void LED::save(ofstream& Save)
+{
+
+	Save << "LED" << "  " << ID << "   " << m_Label << "  " << m_GfxInfo.x1 << "   " << m_GfxInfo.y1 << "  " << endl;
+
+}
+void LED::load(ifstream& Load)
+{
+	Load >> nameofcomp >> ID >> m_Label >> m_GfxInfo.x1 >> m_GfxInfo.y1;
+}
+void LED::edit(string l)
+{
+	m_Label = l;
 }

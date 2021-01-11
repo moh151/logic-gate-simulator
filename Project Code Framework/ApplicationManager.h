@@ -19,7 +19,7 @@ private:
 	Output* OutputInterface; //pointer to the Output Clase Interface
 	Input* InputInterface; //pointer to the Input Clase Interface
 	int CompCount; //Actual number of Components
-
+	Component* obj;  //component object for label setter and getter
 
 public:
 
@@ -40,6 +40,10 @@ public:
 	int getComponentCount();
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp);
+	//saving loop
+	void saveall(ofstream& obj);
+	//editing loop
+	void editall(string labe);
 	//destructor
 	~ApplicationManager();
 };

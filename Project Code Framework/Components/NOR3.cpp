@@ -1,7 +1,13 @@
 #include "NOR3.h"
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <string>
 
 NOR3::NOR3(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(3, r_FanOut)
 {
+	m_Label = "NOR3";
+	ID = 9;
 	m_Label= "NOR3";
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
@@ -63,4 +69,19 @@ int NOR3::GetInputPinStatus(int n)
 void NOR3::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
+}
+
+void NOR3::save(ofstream& Save)
+{
+	Save << "NOR3" << "  " << ID << "  " << m_Label << "  " << m_GfxInfo.x1 << "   " << m_GfxInfo.y1 << "  " << endl;
+
+}
+void NOR3::load(ifstream& Load)
+{
+	Load >> nameofcomp >> ID >> m_Label >> m_GfxInfo.x1 >> m_GfxInfo.y1;
+
+}
+void NOR3::edit(string l)
+{
+	m_Label = l;
 }

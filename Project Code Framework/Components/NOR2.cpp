@@ -1,6 +1,13 @@
 #include "NOR2.h"
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <string>
+
 NOR2::NOR2(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(2, r_FanOut)
 {
+	m_Label = "NOR2";
+	ID = 8;
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
 	m_GfxInfo.x2 = r_GfxInfo.x2;
@@ -56,4 +63,19 @@ int NOR2::GetInputPinStatus(int n)
 void NOR2::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
+}
+
+void NOR2::save(ofstream& Save)
+{
+
+	Save << "NOR2" << "  " << ID << "   " << m_Label << "  " << m_GfxInfo.x1 << "   " << m_GfxInfo.y1 << "  " << endl;
+
+}
+void NOR2::load(ifstream& Load)
+{
+	Load >> nameofcomp >> ID >> m_Label >> m_GfxInfo.x1 >> m_GfxInfo.y1;
+}
+void NOR2::edit(string l)
+{
+	m_Label = l;
 }

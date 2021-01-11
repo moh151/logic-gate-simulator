@@ -10,8 +10,9 @@ class Component
 protected:
 	string m_Label;
 	bool mSelected;			
-protected:
 	GraphicsInfo m_GfxInfo;	//The parameters required to draw a component
+	int ID = 0;  // the ID of each component
+	string nameofcomp; //to save the name of the component away from it's label given by the user
 public:
 	GraphicsInfo getGraphicsinfo();
 	Component(const GraphicsInfo& r_GfxInfo);
@@ -23,7 +24,17 @@ public:
 	bool IsSelected() const;
 	virtual void setInputPinStatus(int n, STATUS s) = 0;	//set status of Inputpin # n, to be used by connection class.
 	void setLabel(string s);
-
+	////////////////////////////////////
+	//to save this action
+	virtual void save(ofstream& Save) = 0;
+	//to load this action
+	virtual void load(ifstream& Load) = 0;
+	//label setter
+	//void setLabel(string l);
+	virtual void edit(string l) = 0;
+	int getID();
+	//virtual void edit(string newlabel);
+	/////////////////////////////////////
 	Component();
 
 	//Destructor must be virtual

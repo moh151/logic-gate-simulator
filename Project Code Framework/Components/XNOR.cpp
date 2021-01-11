@@ -1,6 +1,13 @@
 #include "XNOR.h"
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <string>
+
 XNOR::XNOR(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(2, r_FanOut)
 {
+	m_Label = "XNOR";
+	ID = 11;
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
 	m_GfxInfo.x2 = r_GfxInfo.x2;
@@ -59,4 +66,18 @@ int XNOR::GetInputPinStatus(int n)
 void XNOR::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
+}
+
+void XNOR::save(ofstream& Save)
+{
+	Save << "XNOR2" << "  " << ID << "  " << m_Label << "  " << m_GfxInfo.x1 << "   " << m_GfxInfo.y1 << "  " << endl;
+
+}
+void XNOR::load(ifstream& Load)
+{
+	Load >> nameofcomp >> ID >> m_Label >> m_GfxInfo.x1 >> m_GfxInfo.y1;
+}
+void XNOR::edit(string l)
+{
+	m_Label = l;
 }

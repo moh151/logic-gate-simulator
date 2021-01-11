@@ -1,8 +1,13 @@
 #include "Switch.h"
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <string>
 
 SWITCH::SWITCH(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(1, r_FanOut)
 {
 	m_Label = "Switch";
+	ID = 14;
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
 	m_GfxInfo.x2 = r_GfxInfo.x2;
@@ -68,4 +73,20 @@ int SWITCH::GetInputPinStatus(int n)
 void SWITCH::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPin.setStatus(s);
+}
+
+void SWITCH::save(ofstream& Save)
+{
+
+	Save << "SWITCH" << "  " << ID << "   " << m_Label << "  " << m_GfxInfo.x1 << "   " << m_GfxInfo.y1 << "  " << endl;
+
+}
+void SWITCH::load(ifstream& Load)
+{
+	Load >> nameofcomp >> ID >> m_Label >> m_GfxInfo.x1 >> m_GfxInfo.y1;
+
+}
+void SWITCH::edit(string l)
+{
+	m_Label = l;
 }

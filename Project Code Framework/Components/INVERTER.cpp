@@ -1,6 +1,13 @@
 #include "INVERTER.h"
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <string>
+
 INVERTER::INVERTER(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(1, r_FanOut)
 {
+	m_Label = "INVERTER";
+	ID = 5;
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
 	m_GfxInfo.x2 = r_GfxInfo.x2;
@@ -54,4 +61,19 @@ int INVERTER::GetInputPinStatus(int n)
 void INVERTER::setInputPinStatus(int n,STATUS s)
 {
 	m_InputPins[0].setStatus(s);
+}
+
+void INVERTER::save(ofstream& Save)
+{
+	Save << "INVERTER" << "  " << ID << "   " << m_Label << "  " << m_GfxInfo.x1 << "   " << m_GfxInfo.y1 << "  " << endl;
+
+}
+void INVERTER::load(ifstream& Load)
+{
+	Load >> nameofcomp >> ID >> m_Label >> m_GfxInfo.x1 >> m_GfxInfo.y1;
+
+}
+void INVERTER::edit(string l)
+{
+	m_Label = l;
 }

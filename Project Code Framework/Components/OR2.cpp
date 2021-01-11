@@ -1,7 +1,12 @@
 #include "OR2.h"
-
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <string>
 OR2::OR2(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(2, r_FanOut)
 {
+	m_Label = "OR2";
+	ID = 10;
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
 	m_GfxInfo.x2 = r_GfxInfo.x2;
@@ -58,4 +63,20 @@ int OR2::GetInputPinStatus(int n)
 void OR2::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
+}
+
+void OR2::save(ofstream& Save)
+{
+
+	Save << "OR2" << "  " << ID << "  " << m_Label << "  " << m_GfxInfo.x1 << "   " << m_GfxInfo.y1 << "  " << endl;
+
+}
+void OR2::load(ifstream& Load)
+{
+	Load >> nameofcomp >> ID >> m_Label >> m_GfxInfo.x1 >> m_GfxInfo.y1;
+
+}
+void OR2::edit(string l)
+{
+	m_Label = l;
 }

@@ -25,6 +25,10 @@ void Component::setLabel(string s)
 	m_Label = s;
 }
 
+int Component::getID()
+{
+	return ID;
+}
 
 Component::Component()
 {}

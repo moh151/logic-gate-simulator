@@ -1,7 +1,12 @@
 #include "XOR2.h"
-
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <string>
 XOR2::XOR2(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(2, r_FanOut)
 {
+	m_Label = "XOR2";
+	ID = 12;
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
 	m_GfxInfo.x2 = r_GfxInfo.x2;
@@ -53,4 +58,18 @@ int XOR2::GetInputPinStatus(int n)
 void XOR2::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
+}
+
+void XOR2::save(ofstream& Save)
+{
+	Save << "XOR2" << "  " << ID << "  " << m_Label << "  " << m_GfxInfo.x1 << "   " << m_GfxInfo.y1 << "  " << endl;
+
+}
+void XOR2::load(ifstream& Load)
+{
+	Load >> nameofcomp >> ID >> m_Label >> m_GfxInfo.x1 >> m_GfxInfo.y1;
+}
+void XOR2::edit(string l)
+{
+	m_Label = l;
 }

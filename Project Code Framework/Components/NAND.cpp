@@ -1,7 +1,13 @@
 #include "NAND.h"
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <string>
 
 NAND::NAND(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(2, r_FanOut)
 {
+	m_Label = "NAND2";
+	ID = 7;
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
 	m_GfxInfo.x2 = r_GfxInfo.x2;
@@ -56,4 +62,18 @@ int NAND::GetInputPinStatus(int n)
 void NAND::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
+}
+
+void NAND::save(ofstream& Save)
+{
+	Save << "NAND2" << "  " << ID << "  " << m_Label << "  " << m_GfxInfo.x1 << "   " << m_GfxInfo.y1 << "  " << endl;
+
+}
+void NAND::load(ifstream& Load)
+{
+	Load >> nameofcomp >> m_Label >> m_GfxInfo.x1 >> m_GfxInfo.y1;
+}
+void NAND::edit(string l)
+{
+	m_Label = l;
 }

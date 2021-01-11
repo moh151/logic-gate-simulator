@@ -1,6 +1,14 @@
 #include "AND3.h"
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include "..\Actions\load.h"
+
 AND3::AND3(const GraphicsInfo& r_GfxInfo, int r_FanOut) :Gate(3, r_FanOut)
 {
+	m_Label = "AND3";
+	ID = 3;
 	m_GfxInfo.x1 = r_GfxInfo.x1;
 	m_GfxInfo.y1 = r_GfxInfo.y1;
 	m_GfxInfo.x2 = r_GfxInfo.x2;
@@ -54,4 +62,29 @@ int AND3::GetInputPinStatus(int n)
 void AND3::setInputPinStatus(int n, STATUS s)
 {
 	m_InputPins[n - 1].setStatus(s);
+}
+void AND3::save(ofstream& Save)
+{
+	Save << "AND3" << "  " << ID << "  " << m_Label << "  " << m_GfxInfo.x1 << "   " << m_GfxInfo.y1 << "  " << endl;
+}
+
+void AND3::load(ifstream& Load)
+{
+	/*ifstream load;
+	load.open("save.text");
+	//for checking errors
+
+	if (load.fail())
+	{
+		cerr << "error opening file" << endl;
+		exit(1);
+	}*/
+
+	Load >> nameofcomp >> ID >> m_Label >> m_GfxInfo.x1 >> m_GfxInfo.y1;
+
+
+}
+void AND3::edit(string l)
+{
+	m_Label = l;
 }
