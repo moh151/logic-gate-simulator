@@ -1,2 +1,2 @@
-NOR3  9  NOR3  459   439  
-SWITCH  14   Switch  953   326  
+Buffer  4  Buffer  465   587  
+INVERTER  5   INVERTER  748   550  

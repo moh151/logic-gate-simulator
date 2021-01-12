@@ -19,6 +19,11 @@
 #include "Actions\load.h"
 #include "Actions\AddConnection.h"
 #include "Actions\Simulate.h"
+#include "Actions/Copy.h"
+#include "Actions/Cut.h"
+#include "Actions/Paste.h"
+#include "Actions/Delete.h"
+
 ApplicationManager::ApplicationManager()
 {
 	CompCount = 0;
@@ -122,6 +127,18 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			break;
 		case SIM_MODE:
 			pAct = new Simulate(this);
+			break;
+		case DEL:
+			pAct = new Delete(this);
+			break;
+		case COPY:
+			pAct = new Copy(this);
+			break;
+		case CUT:
+			pAct = new Cut(this);
+			break;
+		case PASTE:
+			pAct = new Paste(this);
 			break;
 	}
 	if(pAct)
