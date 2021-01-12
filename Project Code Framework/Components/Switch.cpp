@@ -45,6 +45,7 @@ void SWITCH::Draw(Output* pOut)
 		pOut->PrintMsg("Invalid Postion");
 	}
 	else {
+		pOut->ClearStatusBar();
 	pOut->DrawSwitch(m_GfxInfo, mSelected, m_OutputPin.getStatus() == STATUS::HIGH);
 	}
 }

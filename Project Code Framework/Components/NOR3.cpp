@@ -46,6 +46,7 @@ void NOR3::Draw(Output* pOut)
 		pOut->PrintMsg("Invalid Postion");
 	}
 	else {
+		pOut->ClearStatusBar();
 	pOut->DrawNOR3(m_GfxInfo, mSelected);
 
 	}

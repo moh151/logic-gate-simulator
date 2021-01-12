@@ -37,6 +37,7 @@ void XOR2::Draw(Output* pOut)
 		pOut->PrintMsg("Invalid Postion");
 	}
 	else {
+		pOut->ClearStatusBar();
 	pOut->DrawXOR2(m_GfxInfo, mSelected);
 	}
 }

@@ -17,7 +17,8 @@
 #include "Actions\save.h"
 #include "Actions\edit.h"
 #include "Actions\load.h"
-#include "Actions\AddConection.h"
+#include "Actions\AddConnection.h"
+#include "Actions\Simulate.h"
 ApplicationManager::ApplicationManager()
 {
 	CompCount = 0;
@@ -119,7 +120,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		case LOAD:
 			pAct = new load(this);
 			break;
-
+		case SIM_MODE:
+			pAct = new Simulate(this);
+			break;
 	}
 	if(pAct)
 	{
@@ -127,6 +130,13 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		delete pAct;
 		pAct = NULL;
 	}
+}
+
+void ApplicationManager::loadall(ifstream& obj)
+{
+
+	for (int i = 0; i < CompCount; i++)
+		CompList[i]->load(obj);
 }
 Component* ApplicationManager::GetCompenentList(int i)
 {
@@ -139,6 +149,32 @@ void ApplicationManager::UpdateInterface()
 
 		for(int i=0; i<CompCount; i++)
 			CompList[i]->Draw(OutputInterface);
+
+}
+int ApplicationManager::getNumberOfLEDS()
+{
+	int count = 0;
+	for (int i = 0; i < CompCount; i++)
+	{
+		LED* L = dynamic_cast<LED*>(CompList[i]);
+		if (L != NULL)
+			count++;
+	}
+	return count;
+}
+
+int ApplicationManager::getNumberOfSwitchs()
+{
+	int count = 0;
+	for (int i = 0; i < CompCount; i++)
+	{
+		SWITCH* S = dynamic_cast<SWITCH*>(CompList[i]);
+		if (S != NULL)
+			count++;
+	}
+	return count;
+	
+
 
 }
 
@@ -176,6 +212,58 @@ void ApplicationManager::editall(string labe)
 		CompList[i]->edit(labe);
 
 }
+
+
+void ApplicationManager::SetCopiedComp(Component* pComp) {
+	CopiedComp = pComp;
+}
+void ApplicationManager::SetSelectionOfComponents(bool s) {
+	for (int i = 0; i < CompCount; i++) {
+		CompList[i]->SetSelected(s);
+	}
+}
+
+/* Returns the last copied/cut component */
+Component* ApplicationManager::GetCopiedComp() const {
+	return CopiedComp;
+}
+void ApplicationManager::DeleteComp(float x, float y) {
+	int i = 0;
+	while (i < CompCount && CompList[i] != NULL)
+	{
+		if (CompList[i]->IsSelected())
+		{
+			delete CompList[i];
+			CompList[i] = NULL;
+		}
+		i++;
+	}
+	int a;
+	for (int j = 0; j < CompCount; j++)
+	{
+		if (CompList[j] == NULL)
+			a = j;
+	}
+	for (int k = a; k < CompCount; k++)
+	{
+		CompList[k] = CompList[k + 1];
+	}
+	CompList[CompCount] = NULL;
+	CompCount--;
+}
+Component* ApplicationManager::selected(float x, float y)
+{
+	int i = 0;
+	while (i < CompCount)
+	{
+		if (CompList[i]->IsSelected())
+			return CompList[i];
+		i++;
+	}
+	return NULL;
+}
+
+
 ApplicationManager::~ApplicationManager()
 {
 	for(int i=0; i<CompCount; i++)

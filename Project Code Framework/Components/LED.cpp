@@ -46,6 +46,7 @@ void LED::Draw(Output* pOut)
 		pOut->PrintMsg("Invalid Postion");
 	}
 	else {
+		pOut->ClearStatusBar();
 	pOut->DrawLED(m_GfxInfo,mSelected, m_InputPin.getStatus() == STATUS::HIGH);
 
 	}

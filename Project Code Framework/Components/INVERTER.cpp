@@ -40,6 +40,7 @@ void INVERTER::Draw(Output* pOut)
 		pOut->PrintMsg("Invalid Postion");
 	}
 	else {
+		pOut->ClearStatusBar();
 	pOut->DrawINV(m_GfxInfo, mSelected);
 	}
 }

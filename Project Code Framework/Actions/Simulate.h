@@ -33,7 +33,7 @@ public:
 	virtual void ReadActionParameters();
 
 	//Execute action (code depends on action type)
-	virtual void Execute(Component* pComp);
+	virtual void Execute();
 
 
 

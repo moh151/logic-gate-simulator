@@ -35,7 +35,8 @@ void Buffer::Draw(Output* pOut)
 		pOut->PrintMsg("Invalid Postion");
 	}
 	else {
-	pOut->DrawBuffer(m_GfxInfo, mSelected);
+		pOut->ClearStatusBar();
+		pOut->DrawBuffer(m_GfxInfo, mSelected);
 
 	}
 }

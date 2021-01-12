@@ -30,6 +30,10 @@ int Component::getID()
 	return ID;
 }
 
+bool Component::IsDeleted() const {
+	return mDeleted;
+}
+
 Component::Component()
 {}
 

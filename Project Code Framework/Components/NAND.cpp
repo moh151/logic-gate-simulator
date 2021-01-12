@@ -40,7 +40,7 @@ void NAND::Draw(Output* pOut)
 		pOut->PrintMsg("Invalid Postion");
 	}
 	else {
-
+		pOut->ClearStatusBar();
 	pOut->DrawNAND2(m_GfxInfo, mSelected);
 	}
 }

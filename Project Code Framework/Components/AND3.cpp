@@ -41,6 +41,7 @@ void AND3::Draw(Output* pOut)
 		pOut->PrintMsg("Invalid Postion");
 	}
 	else {
+		pOut->ClearStatusBar();
 		pOut->DrawAND3(m_GfxInfo, mSelected);
 	}
 }

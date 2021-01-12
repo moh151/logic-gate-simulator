@@ -41,7 +41,7 @@ void OR2::Draw(Output* pOut)
 		pOut->PrintMsg("Invalid Postion");
 	}
 	else {
-
+		pOut->ClearStatusBar();
 	pOut->DrawOR2(m_GfxInfo, mSelected);
 	}
 }

@@ -44,7 +44,7 @@ void XNOR::Draw(Output* pOut)
 		pOut->PrintMsg("Invalid Postion");
 	}
 	else {
-
+		pOut->ClearStatusBar();
 	pOut->DrawXNOR2(m_GfxInfo, mSelected);
 	}
 }

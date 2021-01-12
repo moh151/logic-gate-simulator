@@ -9,6 +9,7 @@ class load : public Action
 {
 private:
 	int Cx, Cy;
+	int x, y, x2, y2;
 public:
 	ifstream Loading;
 	load(ApplicationManager* pApp);
@@ -19,6 +20,6 @@ public:
 	virtual void Execute();
 	virtual void Undo();
 	virtual void Redo();
-	
+
 
 };

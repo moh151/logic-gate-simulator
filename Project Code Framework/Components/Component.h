@@ -13,6 +13,7 @@ protected:
 	GraphicsInfo m_GfxInfo;	//The parameters required to draw a component
 	int ID = 0;  // the ID of each component
 	string nameofcomp; //to save the name of the component away from it's label given by the user
+	bool mDeleted;
 public:
 	GraphicsInfo getGraphicsinfo();
 	Component(const GraphicsInfo& r_GfxInfo);
@@ -33,6 +34,7 @@ public:
 	//void setLabel(string l);
 	virtual void edit(string l) = 0;
 	int getID();
+	bool IsDeleted() const;
 	//virtual void edit(string newlabel);
 	/////////////////////////////////////
 	Component();

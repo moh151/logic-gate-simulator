@@ -20,6 +20,7 @@ private:
 	Input* InputInterface; //pointer to the Input Clase Interface
 	int CompCount; //Actual number of Components
 	Component* obj;  //component object for label setter and getter
+	Component* CopiedComp;
 
 public:
 
@@ -38,12 +39,26 @@ public:
 	Output* GetOutput();
 	Input* GetInput();
 	int getComponentCount();
+
 	//Adds a new component to the list of components
 	void AddComponent(Component* pComp);
 	//saving loop
 	void saveall(ofstream& obj);
 	//editing loop
 	void editall(string labe);
+	int getNumberOfLEDS(); 
+	int getNumberOfSwitchs();
+	void loadall(ifstream& obj);
+	// Sets a selection value to all components 
+	void SetSelectionOfComponents(bool s);
+	// Sets the last copied/cut component 
+	void SetCopiedComp(Component* pComp);
+
+	// Returns the last copied/cut component 
+	Component* GetCopiedComp()const;
+	//Removes a component to the list of components 
+	void ApplicationManager::DeleteComp(float x, float y);
+	Component* ApplicationManager::selected(float x, float y);
 	//destructor
 	~ApplicationManager();
 };

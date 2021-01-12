@@ -53,7 +53,7 @@ void Output::CreateStatusBar() const
 //////////////////////////////////////////////////////////////////////////////////
 void Output::PrintMsg(string msg) const
 {
-	ClearStatusBar();	//Clear Status bar to print message on it
+	//Clear Status bar to print message on it
 	// Set the Message offset from the Status Bar
 	int MsgX = 25;
 	int MsgY = UI.StatusBarHeight - 10;
@@ -145,28 +145,13 @@ void Output::CreateSimulationToolBar() const
 	UI.AppMode = SIMULATION;	//Simulation Mode
 
 	//TODO: Write code to draw the simualtion toolbar (similar to that of design toolbar drawing)
-	string MenuItemImages[ITM_DSN_CNT];
-	MenuItemImages[ITM_AND2] = "images\\Menu\\and.jpg";
-	MenuItemImages[ITM_OR2] = "images\\Menu\\or.jpg";
-	MenuItemImages[ITM_EXIT] = "images\\Menu\\exit.jpg";
-	MenuItemImages[ITM_Buffer] = "images\\Menu\\buffer.jpg";
-	MenuItemImages[ITM_NOT] = "images\\Menu\\not.jpg";
-	MenuItemImages[ITM_NAND2] = "images\\Menu\\nand.jpg";
-	MenuItemImages[ITM_XOR2] = "images\\Menu\\xor.jpg";
-	MenuItemImages[ITM_NOR2] = "images\\Menu\\nor.jpg";
-	MenuItemImages[ITM_NOR3] = "images\\Menu\\nor3.jpg";
-	MenuItemImages[ITM_AND3] = "images\\Menu\\and3.jpg";
-	MenuItemImages[ITM_AND3] = "images\\Menu\\and3.jpg";
-	MenuItemImages[ITM_XOR3] = "images\\Menu\\xor3.jpg";
-	MenuItemImages[ITM_XOR3] = "images\\Menu\\xor3.jpg";
-	MenuItemImages[ITM_XNOR2] = "images\\Menu\\xnor.jpg";
-	MenuItemImages[ITM_SWITCH] = "images\\Menu\\switch.jpg";
-	MenuItemImages[ITM_LED] = "images\\Menu\\led.jpg";
-	MenuItemImages[ITM_CONNECTION] = "images\\Menu\\connection.jpg";
+	string MenuItemImages[ITM_SIM_CNT];
+	MenuItemImages[ITM_SWITCH_DSN] = "images\\toolbar\\pause.jpg";
 
 
-	//	for (int i = 0; i < ITM_DSN_CNT; i++)
-		//	pWind->DrawImage(MenuItemImages[i], i * UI.ToolItemWidth,0, UI.ToolItemWidth,UI.ToolBarHeight);
+
+		for (int i = 0; i < ITM_SIM_CNT; i++)
+			pWind->DrawImage(MenuItemImages[i], i * UI.ToolItemWidth,130, UI.ActionItemWidth,UI.ActionItemHeight);
 
 }
 

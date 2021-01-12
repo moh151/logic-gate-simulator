@@ -7,6 +7,8 @@
 using namespace std;
 save::save(ApplicationManager* pApp) :Action(pApp)
 {
+	Cx = 0;
+	Cy = 0;
 
 }
 
